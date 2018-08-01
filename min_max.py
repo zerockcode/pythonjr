@@ -4,13 +4,28 @@ data = [ randint(1,10) for x in range(10)]
 
 print(data)
 
-min_value = 100
-min_idx = 0
+def calc_min(min, list):
+    if len(list) == 0:
+        return min
 
-for idx, num in enumerate(data):
+    num = list.pop()
 
-    if num < min_value:
-        min_value = num
-        min_idx = idx
+    if num < min:
+        min = num
 
-print(min_idx, min_value)
+    return calc_min(min,list)
+
+print("--------------------")
+print(calc_min(100, data))
+
+
+# min_value = 100
+# min_idx = 0
+#
+# for idx, num in enumerate(data):
+#
+#     if num < min_value:
+#         min_value = num
+#         min_idx = idx
+#
+# print(min_idx, min_value)
